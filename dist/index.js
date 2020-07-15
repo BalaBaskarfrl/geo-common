@@ -20,5 +20,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const frlProcessor_1 = __importStar(require("./src/helper/frlProcessor"));
-module.exports = { FrlProcessor: frlProcessor_1.default, ruleService: frlProcessor_1.ruleService };
+exports.default = {
+    FrlProcessor: frlProcessor_1.default,
+    ruleService: frlProcessor_1.ruleService,
+};
 //# sourceMappingURL=index.js.map
