@@ -6,7 +6,7 @@ export default class FrlProcessor{
     constructor() {
         this.userEventId  =   null;
       }
-    preProcessor  =   async (callback, args, name, type)=>{
+    preProcessor  =   async (callback:any, args:any, name:string, type:string)=>{
 
 
         const geoEvents         =   new GEOEventEntity();
@@ -41,7 +41,7 @@ export default class FrlProcessor{
 function getNested(obj, ...args) {
     return args.reduce((obj, level) => obj && obj[level], obj)
 }
-export  function ruleService(wrapperMethod) {
+export  function ruleService(wrapperMethod:any) {
     return (target, key, descriptor) => {
   
       if ( typeof(target) === 'function' ){

@@ -36,7 +36,7 @@ export class DBEntity {
             var db = mongoose.connection;
             db.on("error", console.error.bind(console, "MongoDB Connection error"));
             if (process.env.DEBUG === '*') {
-                            mongoose.set("debug", (collectionName, method, query, doc) => {
+                            mongoose.set("debug", (collectionName: any, method: any, query: any, doc: any) => {
                                 console.log(`${collectionName}.${method}`, JSON.stringify(query), doc);
                             });
             }

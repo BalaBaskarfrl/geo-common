@@ -18,7 +18,7 @@ export class GEOEventEntity extends DBEntity{
       return result;
     }
  
-    async findById(id) {
+    async findById(id: any) {
       const objId = new ObjectId(id);
       const result = await super.getDB().collection('geouserevents').find({"_id":objId});
       const found = await result.toArray();
@@ -28,7 +28,7 @@ export class GEOEventEntity extends DBEntity{
       return found[0];
     }
 
-    async insert(frlEventData, _session?:any) {
+    async insert(frlEventData:any, _session?:any) {
 
         const opts = { _session };
         let frlEventRecord:any = new GEOUserEvent({
@@ -43,7 +43,7 @@ export class GEOEventEntity extends DBEntity{
         return frlEventRecord;
     }
 
-    async update (frlEventData, _session) {
+    async update (frlEventData: any, _session: any) {
       const opts = { _session };
       const objId = new ObjectId(frlEventData._id);
       const db = await this.getDB();
@@ -53,12 +53,12 @@ export class GEOEventEntity extends DBEntity{
       return result.modifiedCount > 0 ? result : null;
     }
 
-    async delete (frlEventData) {
+    async delete (frlEventData: any) {
       const objId = new ObjectId(frlEventData._id);
       const result = await this.getDB().collection('geouserevents').deleteOne({"_id":objId});
       return result.deletedCount;
     }
-    async updateEventResponseById (updateProcessResponseById,frlResponse,_session?:any) {
+    async updateEventResponseById (updateProcessResponseById: any,frlResponse: any,_session?:any) {
         const opts = { _session };
         const objId = new ObjectId(updateProcessResponseById);
         const db = await this.getDB();
