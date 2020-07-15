@@ -22,7 +22,9 @@ export default class FrlProcessor{
         result =  callback();
         return result;
     };
-    postProcessor  = async  (callback:any, args:any, name:string, type:any)=>{
+
+    postProcessor  = async  (callback:any, args:any, name:string, type:string)=>{
+
         let result: any;
         result              =  await callback();
 
@@ -44,8 +46,9 @@ function getNested(obj:any, ...args:any) {
 export  function ruleService(wrapperMethod:any) {
     return (target:any, key:any, descriptor:any) => {
   
-      if ( typeof(target) === 'function' ){
-        let newTarget = async function (this: any,  ...arg:any) { 
+
+        let newTarget = async function (this: any, ...arg:any) { 
+
           var self = this;
           return async function() {
             var methodCallback = async function(){return new target(arg)};
@@ -55,7 +58,9 @@ export  function ruleService(wrapperMethod:any) {
         return newTarget;
       } else {
         let orgMethod = descriptor.value;
-        descriptor.value = async function (...arg: any) {
+
+        descriptor.value = async function (...arg:any) {
+
           var self = this;
           return async function() {
             var methodCallback = async function() { return await orgMethod.apply(self, arg) };
