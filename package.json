@@ -17,6 +17,12 @@
     "@types/mongoose": "^5.5.3",
     "concurrently": "^4.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.5.11"
+    "mongoose": "^5.5.11",
+    "typescript-require": "^0.2.10"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.11",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   }
 }
